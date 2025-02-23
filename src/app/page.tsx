@@ -1,10 +1,8 @@
-import { PrismaClient } from '@prisma/client';
-import { Button } from '../shared/ui/button';
-
-const client = new PrismaClient();
+import { dbClient } from '@/shared/lib/db';
+import { Button } from '@/shared/ui/button';
 
 export default async function Home() {
-  const courses = await client.course.findMany();
+  const courses = await dbClient.course.findMany();
 
   console.log('courses', courses);
 
