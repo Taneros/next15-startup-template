@@ -1,11 +1,25 @@
+import { PrismaClient } from '@prisma/client';
 import { Button } from '../shared/ui/button';
 
-export default function Home() {
+const client = new PrismaClient();
+
+export default async function Home() {
+  const courses = await client.course.findMany();
+
+  console.log('courses', courses);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
-       <Button>Click me</Button>
+        <Button>Click me</Button>
+        <ul>
+          {courses.map(course => (
+            <li key={course.id}>
+              {course.name} - {course.description}
+            </li>
+          ))}
+        </ul>
 
       </main>
     </div>
