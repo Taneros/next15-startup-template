@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 import { Button } from '@/shared/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/shared/ui/card';
 import { Course } from '@prisma/client';
@@ -26,7 +26,7 @@ export const CourseItem = ({ course, onDelete }: CourseItemProps) => {
       </CardHeader>
       <CardFooter>
         <Button onClick={handleDelete} disabled={isLoadingDelete}>
-          {isLoadingDelete ? 'Deleting...' : 'Delete'}
+          {isLoadingDelete ? 'Удаление...' : 'Удалить'}
         </Button>
       </CardFooter>
     </Card>

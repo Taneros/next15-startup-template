@@ -3,14 +3,13 @@ import { dbClient } from '@/shared/lib/db';
 import { cache } from 'react';
 
 class CoursesRepository {
-  @cache
-  public async getCoursesList(): Promise<CourseListElement[]> {
+  public getCoursesList = cache(async (): Promise<CourseListElement[]> => {
     try {
       return await dbClient.course.findMany();
     } catch (error) {
       throw new Error(`Failed to fetch courses: ${error}`);
     }
-  }
+  });
 
   public createCourseElement = async (
     course: CreateCourseListElementCommand

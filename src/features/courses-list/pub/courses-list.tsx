@@ -10,20 +10,20 @@ export const CoursesList = async ({ revalidatePagePath }: ICourseListProps) => {
   const courseList = await coursesRepository.getCoursesList();
 
   const handleDeleteAction = async (courseId: string) => {
-    'use-server';
+    'use server';
     await coursesRepository.deleteCourseElement({ id: courseId });
 
     revalidatePath(revalidatePagePath);
   };
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 mt-8">
       {courseList.length > 0 ? (
         courseList.map((course) => (
           <CourseItem key={course.id} course={course} onDelete={handleDeleteAction.bind(null, course.id)} />
         ))
       ) : (
-        <div>No courses available</div>
+        <div>Нет курсов</div>
       )}
     </div>
   );
