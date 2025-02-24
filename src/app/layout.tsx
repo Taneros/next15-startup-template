@@ -1,4 +1,4 @@
-import { cn } from '@/src/shared/ui/utils';
+import { cn } from '@/shared/ui/utils';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
