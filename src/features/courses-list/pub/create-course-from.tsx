@@ -49,7 +49,7 @@ export const CreateCourseForm = ({className, revalidatePagePath }: ICreateCourse
             <FormItem>
               <FormLabel>Название</FormLabel>
               <FormControl>
-                <Input placeholder="Название 111" {...field} />
+                <Input placeholder="Название 222" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
